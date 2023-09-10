@@ -37,7 +37,9 @@
     <main class="container">
       <div class="search-filter-container">
         <div class="search-container">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
           <input
             type="text"
             id="search-bar"
@@ -46,13 +48,16 @@
         </div>
         <div class="select-menu">
           <select id="select" class="filter-by-region">
-            <option selected disabled>Filter by Region</option>
+            <option selected class="selected">Filter by Region</option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
           </select>
+          <div class="icon-container">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
         </div>
       </div>
       <div class="countries-container"></div>

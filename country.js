@@ -45,7 +45,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
     }
 
     if (country[0].borders) {
-      country[0].borders.forEach((border) => {
+      country[0].borders.map((border) => {
         fetch(`https://restcountries.com/v3.1/alpha/${border}`)
           .then((res) => res.json())
           .then((borderCountry) => {
@@ -53,12 +53,19 @@ fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
             borderCountryTag.textContent = borderCountry[0].name.common;
             borderCountryTag.href = `country.html?name=${borderCountry[0].name.common}`;
             borderCountries.appendChild(borderCountryTag);
+          })
+          .catch((error) => {
+            const errorP = document.createElement("p");
+            errorP.classList.add("not-found");
+            console.log(error.message);
+            errorP.textContent = "borderCountry is not defined⛔";
+            borderCountries.append(errorP);
           });
       });
     } else {
       const errorP = document.createElement("p");
       errorP.classList.add("not-found");
-      errorP.textContent = "There is no border country";
+      errorP.textContent = "This country has no border countries⛔";
       borderCountries.append(errorP);
     }
   });
