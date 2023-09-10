@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Details</title>
+    <!-- Font-Awesome css  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- BootStrap's css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <h2 class="title">Where in the world ?</h2>
+        <p class="dark-mode"><i class="fa-regular fa-moon"></i>Dark Mode</p>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <span class="back-button" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>Back</span>
+
+        <div id="country">
+          <div class="country-details">
+            <div class="flag col-lg-6">
+              <img src="" alt="" />
+            </div>
+            <div class="detail-content col-lg-6">
+              <h1>Azerbaijan</h1>
+              <div class="details-text">
+                <p>
+                  <b>Native Name:</b>
+                  <span class="native-name">Azerbaijan</span>
+                </p>
+                <p>
+                  <b>Population:</b> <span class="population">10110116</span>
+                </p>
+                <p><b>Region:</b> <span class="region">Asia</span></p>
+                <p>
+                  <b>Sub Region:</b>
+                  <span class="sub-region">Western Asia</span>
+                </p>
+                <p><b>Capital:</b> <span class="capital">Baku</span></p>
+                <p><b>Top Level Domain:</b> <span class="domain">.az </span></p>
+                <p><b>Currencies:</b> <span class="currency">AZN</span></p>
+                <p>
+                  <b>Languages:</b> <span class="language">Azerbaijani</span>
+                </p>
+              </div>
+              <div class="border-countries">
+                <p>
+                  <b>Border Countries: </b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./country.js"></script>
+  </body>
+</html>
