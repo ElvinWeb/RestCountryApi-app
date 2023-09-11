@@ -55,11 +55,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
             borderCountries.appendChild(borderCountryTag);
           })
           .catch((error) => {
-            const errorP = document.createElement("p");
-            errorP.classList.add("not-found");
-            console.log(error.message);
-            errorP.textContent = "borderCountry is not defined⛔";
-            borderCountries.append(errorP);
+            console.log(error);
           });
       });
     } else {

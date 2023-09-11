@@ -79,16 +79,16 @@ main {
   transition: 0.3s ease-in-out;
 }
 .country-card #Nepal {
-  max-height: 170px;
+  max-height: 180px;
   height: 100%;
 }
 .country-card #Nepal img {
   object-fit: contain;
-  width: 140px;
+  width: 150px;
   height: 100%;
 }
 .country-card .card-img {
-  max-height: 170px;
+  max-height: 180px;
   height: 100%;
 }
 .country-card .card-img img {
@@ -208,7 +208,6 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
-
 }
 .select-menu .icon-container {
   position: absolute;

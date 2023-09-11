@@ -7,6 +7,9 @@ fetch("https://restcountries.com/v3.1/all")
   .then((data) => {
     showCountries(data);
     allCountriesData = data;
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 filterByRegion.addEventListener("change", (e) => {
@@ -34,21 +37,24 @@ function showCountries(data) {
           <p class="card-info"><b>Capital:</b> ${country.capital}</p>
         </div>
       `;
-
     countryCard.innerHTML = cardHtml;
     countriesContainer.appendChild(countryCard);
   });
 }
 
-searchInput.addEventListener("input", (e) => {
+searchInput.addEventListener("keyup", (e) => {
   let searchValue = e.target.value.trim();
-  if (searchValue) {
-    const searchCountries = allCountriesData.filter((country) =>
-      country.name.common
-        .trim()
-        .toLowerCase()
-        .includes(searchValue.trim().toLowerCase())
-    );
+  const searchCountries = allCountriesData.filter((country) =>
+    country.name.common
+      .trim()
+      .toLowerCase()
+      .includes(searchValue.trim().toLowerCase())
+  );
+  if (searchValue && searchValue.length > 1) {
     showCountries(searchCountries);
+  } else if (!searchValue) {
+    countriesContainer.innerHTML = `<h1>Not Found</h1>`;
+  } else {
+    showCountries(allCountriesData);
   }
 });
