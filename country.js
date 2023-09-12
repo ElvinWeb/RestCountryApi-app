@@ -10,6 +10,8 @@ const domain = document.querySelector(".domain");
 const currencies = document.querySelector(".currency");
 const language = document.querySelector(".language");
 const borderCountries = document.querySelector(".border-countries");
+
+
 fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
   .then((res) => res.json())
   .then((country) => {
