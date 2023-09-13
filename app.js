@@ -47,8 +47,9 @@ function showCountries(data) {
   });
 }
 
-searchInput.addEventListener("keyup", (e) => {
+searchInput.addEventListener("input", (e) => {
   let searchValue = e.target.value.trim();
+  let msg = document.querySelector(".msg");
   const searchCountries = allCountriesData.filter((country) =>
     country.name.common
       .trim()
@@ -58,7 +59,8 @@ searchInput.addEventListener("keyup", (e) => {
   if (searchValue && searchValue.length > 1) {
     showCountries(searchCountries);
   } else if (!searchValue) {
-    countriesContainer.innerHTML = `<h1>Not Found</h1>`;
+    // countriesContainer.innerHTML = `<h1>Not Found</h1>`;
+    msg.style.display = "block";
   } else {
     showCountries(allCountriesData);
   }

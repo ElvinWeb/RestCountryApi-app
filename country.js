@@ -11,7 +11,6 @@ const currencies = document.querySelector(".currency");
 const language = document.querySelector(".language");
 const borderCountries = document.querySelector(".border-countries");
 
-
 fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
   .then((res) => res.json())
   .then((country) => {
@@ -20,7 +19,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryURL}?fullText=true`)
     countryName.textContent = country[0].name.common;
     population.textContent = country[0].population.toLocaleString("en-az");
     region.textContent = country[0].region;
-    domain.textContent = country[0].tld;
+    domain.textContent = country[0].tld.join(" , ");
 
     if (country[0].capital) {
       capital.textContent = country[0].capital?.[0];
