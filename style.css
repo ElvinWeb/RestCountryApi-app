@@ -17,6 +17,18 @@ a {
 body {
   background-color: var(--Light-Gray-1);
 }
+.container {
+  position: relative;
+}
+.hidden {
+  display: none;
+}
+.error-border {
+  border: 2px solid var(--msg-color);
+}
+.show {
+  display: flex;
+}
 main {
   padding: 25px;
 }
@@ -24,7 +36,7 @@ main {
   --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
-    --msg-color: #c51605;
+  --msg-color: #c51605;
 }
 [data-theme="light"] {
   --Dark-blue-1: hsl(0, 0%, 100%);
@@ -43,10 +55,11 @@ main {
   --surface-variant-outline: hsl(223, 18%, 85%);
 }
 .header {
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
+  /* bottom: 0; */
   z-index: 9999;
   background-color: var(--white-1);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -232,12 +245,15 @@ main {
   border-radius: 5px;
   box-shadow: var(--box-shadow);
 }
+.country-container {
+  margin: 70px;
+}
 .border-countries .not-found {
   margin-left: 5px;
   color: var(--msg-color);
 }
 .search-filter-container {
-  margin: 30px 0px 10px 0px;
+  margin: 130px 0px 10px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -249,6 +265,7 @@ main {
   border-radius: 10px;
   box-shadow: var(--box-shadow);
 }
+
 .search-container #search-bar {
   width: 480px;
   padding: 20px 100px 20px 80px;
@@ -313,4 +330,17 @@ select::-ms-expand {
   margin-top: 20px;
   font-weight: 400;
   font-size: 18px;
+}
+.error {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 120px 0;
+}
+.error .message {
+  padding: 30px;
+}
+.error .message h1 {
+  font-size: 60px;
+  color: var(--Dark-blue-1);
 }

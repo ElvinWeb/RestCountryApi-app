@@ -2,6 +2,7 @@ const countriesContainer = document.querySelector(".countries-container");
 const filterByRegion = document.querySelector(".filter-by-region");
 const searchInput = document.querySelector("#search-bar");
 const searchBtn = document.querySelector(".search-icon");
+const errorMsg = document.querySelector(".error");
 
 fetch("https://restcountries.com/v3.1/all")
   .then((res) => res.json())
@@ -13,7 +14,7 @@ fetch("https://restcountries.com/v3.1/all")
     console.log(err.message);
   });
 
-filterByRegion.addEventListener("change", (e) => {
+filterByRegion.addEventListener("change", () => {
   fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
     .then((res) => res.json())
     .then((data) => showCountries(data));
@@ -47,21 +48,41 @@ function showCountries(data) {
   });
 }
 
-searchInput.addEventListener("input", (e) => {
-  let searchValue = e.target.value.trim();
-  let msg = document.querySelector(".msg");
+// searchInput.addEventListener("input", (e) => {
+//   let searchValue = e.target.value.trim();
+//   const searchCountries = allCountriesData.filter((country) =>
+//     country.name.common
+//       .trim()
+//       .toLowerCase()
+//       .includes(searchValue.trim().toLowerCase())
+//   );
+//   if (searchValue && searchValue.length > 1) {
+//     showCountries(searchCountries);
+//   } else if (!searchValue) {
+//     errorMsg.style.display = "flex";
+//   } else {
+//     showCountries(allCountriesData);
+//     errorMsg.style.display = "none";
+//   }
+// });
+
+searchBtn.addEventListener("click", () => {
+  let searchValue = searchInput.value.trim();
   const searchCountries = allCountriesData.filter((country) =>
     country.name.common
       .trim()
       .toLowerCase()
       .includes(searchValue.trim().toLowerCase())
   );
+
   if (searchValue && searchValue.length > 1) {
     showCountries(searchCountries);
-  } else if (!searchValue) {
-    // countriesContainer.innerHTML = `<h1>Not Found</h1>`;
-    msg.style.display = "block";
+    countriesContainer.style.display = "flex";
+    errorMsg.style.display = "none";
+    searchInput.classList.remove("error-border");
   } else {
-    showCountries(allCountriesData);
+    searchInput.classList.add("error-border");
+    errorMsg.style.display = "flex";
+    countriesContainer.style.display = "none";
   }
 });
